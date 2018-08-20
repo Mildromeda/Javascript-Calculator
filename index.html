@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Javascript Calculator</title>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<style>
+    * {
+        font-family: 'Josefin Sans', monospace;
+        color: #555;
+    }
+    body {
+        background-color: orange;
+    }
+    .container {
+        width: 320px;
+        background-color: white;
+        margin: 120px auto;
+    }
+    table {
+        width: 100%;
+        border-color: black;
+    }
+    td {
+        width: 25%;
+    }
+    button {
+        width: 100%;
+        height: 70px;
+        font-size: 24px;
+        background-color: white;
+        border: none;
+    }
+    #inputLabel {
+        height: 120px;
+        font-size: 40px;
+        vertical-align: bottom;
+        text-align: right;
+        padding-right: 16px;
+        background-color:white ;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <table border="1" cellspacing="0">
+        <tr>
+            <td colspan="4" id="inputLabel">0</td>
+        </tr>
+        <tr>
+            <td colspan="3"><button onclick="inputButton(this)";>AC</button></td>
+            <td><button onclick="inputButton(this);">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputButton(this);">7</button></td>
+            <td><button onclick="inputButton(this);">8</button></td>
+            <td><button onclick="inputButton(this);">9</button></td>
+            <td><button onclick="inputButton(this);">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputButton(this);">4</button></td>
+            <td><button onclick="inputButton(this);">5</button></td>
+            <td><button onclick="inputButton(this);">6</button></td>
+            <td><button onclick="inputButton(this);">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputButton(this);">1</button></td>
+            <td><button onclick="inputButton(this);">2</button></td>
+            <td><button onclick="inputButton(this);">3</button></td>
+            <td><button onclick="inputButton(this);">+</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="inputButton(this);">0</button></td>
+            <td><button onclick="inputButton(this);">.</button></td>
+            <td><button onclick="inputButton(this);">=</button></td>
+        </tr>
+    </table>
+</div>
+ 
+<script>
+    var inputLabel = document.getElementById('inputLabel');
+     
+    function inputButton(object) {
+         
+        var input = object.innerHTML;
+         
+        if (input == '=') {
+           
+            inputLabel.innerHTML = eval(inputLabel.innerHTML);
+             
+        } else if (input == 'AC') {
+            inputLabel.innerHTML = '0';
+             
+        } else {
+            if (inputLabel.innerHTML == '0') {
+                inputLabel.innerHTML = input;
+                 
+            } else {
+                inputLabel.innerHTML += input;
+                 
+            }
+        }
+    }
+</script>
+</body>
+</html>
